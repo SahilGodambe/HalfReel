@@ -246,7 +246,7 @@ useEffect(() => {
               playsInline
             >
               <source 
-                src={isMobile ? "src/homemp4-mobile.mp4" : "src/homemp4.mp4"} 
+                src={isMobile ? "/homemp4-mobile.mp4" : "/homemp4.mp4"} 
                 type="video/mp4" 
               />
             </video>
