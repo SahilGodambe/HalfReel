@@ -284,108 +284,101 @@ useEffect(() => {
       case 2:
         return (
           <div className="h-full w-full flex flex-col-reverse lg:flex-row mt-4 px-0 sm:px-6 lg:px-14">
-  {/* Text Section */}
-  <div className="w-full lg:w-1/2 h-1/2 lg:h-full p-4 sm:p-6 lg:p-8 flex md:items-center justify-start lg:pl-16">
-  <div className="max-w-xl space-y-4 sm:space-y-6 text-left">
-    <div className="sm:pl-[10px] lg:pl-16"> 
-  <motion.p
-  initial={{ opacity: 0, x: -100 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1 }}
-   className="text-[60px] sm:text-[60px] lg:text-[90px] 2xl:text-[96px] font-extrabold">
-    <span className="text-neon-yellow">Our</span>{" "}
-    <span className="text-neon-yellow">Work</span>
-  </motion.p>
+          {/* Text Section */}
+          <div className="w-full lg:w-1/2 h-1/2 lg:h-full p-4 sm:p-6 lg:p-8 flex md:items-center justify-start lg:pl-16">
+          <div className="max-w-xl space-y-4 sm:space-y-6 text-left">
+            <div className="sm:pl-[10px] lg:pl-16"> 
+          <motion.p
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="text-[60px] sm:text-[60px] lg:text-[90px] 2xl:text-[96px] font-extrabold">
+            <span className="text-neon-yellow">Our</span>{" "}
+            <span className="text-neon-yellow">Work</span>
+          </motion.p>
 
-  {/* <p className="text-[18px] sm:text-[18px] lg:text-[32px] 2xl:text-[32px] font-semibold leading-relaxed text-black pl-0 sm:pl-[10px]">
-    Raw to Remarkable! <br />
-    Ads to cinema, we craft edits, VFX, and motion that turn raw footage
-    into scroll-stopping stories.
-  </p> */}
-  <motion.p
-  initial={{ opacity: 0, x: -100 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1 }}
-  className="text-[18px] sm:text-[18px] lg:text-[32px] 2xl:text-[32px] font-semibold leading-relaxed text-black pl-0 sm:pl-[10px]"
->
-  Raw to Remarkable! <br />
-  Ads to cinema, we craft edits, VFX, and motion that turn raw footage
-  into scroll-stopping stories.
-</motion.p>
+          {/* <p className="text-[18px] sm:text-[18px] lg:text-[32px] 2xl:text-[32px] font-semibold leading-relaxed text-black pl-0 sm:pl-[10px]">
+            Raw to Remarkable! <br />
+            Ads to cinema, we craft edits, VFX, and motion that turn raw footage
+            into scroll-stopping stories.
+          </p> */}
+          <motion.p
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="text-[18px] sm:text-[18px] lg:text-[32px] 2xl:text-[32px] font-semibold leading-relaxed text-black pl-0 sm:pl-[10px]"
+        >
+          Raw to Remarkable! <br />
+          Ads to cinema, we craft edits, VFX, and motion that turn raw footage
+          into scroll-stopping stories.
+        </motion.p>
+              {/* <button
+                onClick={() => navigate("/Work")}
+                className="px-4 py-2 sm:px-6 sm:py-3 2xl:px-8 2xl:py-4 text-black text-base sm:text-lg 2xl:text-xl font-semibold rounded-md transition-colors duration-300 bg-[hsl(var(--neon-light-yellow))] hover:bg-[hsl(var(--neon-yellow))]"
+              >
+                Explore Our Work
+              </button> */}
+          <motion.button
+          onClick={() => navigate("/Work")}
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="px-4 py-2 sm:px-6 sm:py-3 mt-6 2xl:px-8 2xl:py-4 2xl:mt-10 text-black text-base sm:text-lg 2xl:text-xl font-semibold rounded-md transition-colors duration-300 bg-[hsl(var(--neon-light-yellow))] hover:bg-[hsl(var(--neon-yellow))]"
+        >
+          Explore Our Work
+        </motion.button>
+            </div>
+            </div>
+          </div>
 
+          {/* Video Section */}
+          <motion.div
+          className="w-full lg:w-1/2 h-1/2 lg:h-full flex justify-center items-center px-4 lg:pl-0 lg:pr-8 relative"
+          onClick={togglePlayPause}
+          initial={{ opacity: 0, x: 100 }} // start 100px right
+          animate={{ opacity: 1, x: 0 }}  // fade in & slide to center
+          transition={{ duration: 1 }}
+        >
+          <video
+            ref={workVideoRef}
+            src="/workmp4.mp4"
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            className="w-full h-full max-h-[50vh] lg:max-h-none object-contain"
+          />
 
-  
+          {/* Controls */}
+          <div
+            className="absolute bottom-4 left-4 flex gap-2 bg-black bg-opacity-50 p-2 rounded"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                togglePlayPause();
+              }}
+              className="text-white p-1"
+              aria-label="Play/Pause"
+            >
+              {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+            </button>
 
-
-
-      {/* <button
-        onClick={() => navigate("/Work")}
-        className="px-4 py-2 sm:px-6 sm:py-3 2xl:px-8 2xl:py-4 text-black text-base sm:text-lg 2xl:text-xl font-semibold rounded-md transition-colors duration-300 bg-[hsl(var(--neon-light-yellow))] hover:bg-[hsl(var(--neon-yellow))]"
-      >
-        Explore Our Work
-      </button> */}
-      <motion.button
-  onClick={() => navigate("/Work")}
-  initial={{ opacity: 0, x: -100 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1 }}
-  className="px-4 py-2 sm:px-6 sm:py-3 mt-6 2xl:px-8 2xl:py-4 2xl:mt-10 text-black text-base sm:text-lg 2xl:text-xl font-semibold rounded-md transition-colors duration-300 bg-[hsl(var(--neon-light-yellow))] hover:bg-[hsl(var(--neon-yellow))]"
->
-  Explore Our Work
-</motion.button>
-    </div>
-    </div>
-  </div>
-
-  {/* Video Section */}
-  <motion.div
-  className="w-full lg:w-1/2 h-1/2 lg:h-full flex justify-center items-center px-4 lg:pl-0 lg:pr-8 relative"
-  onClick={togglePlayPause}
-  initial={{ opacity: 0, x: 100 }} // start 100px right
-  animate={{ opacity: 1, x: 0 }}  // fade in & slide to center
-  transition={{ duration: 1 }}
->
-  <video
-    ref={workVideoRef}
-    src="/workmp4.mp4"
-    autoPlay
-    loop
-    muted={isMuted}
-    playsInline
-    className="w-full h-full max-h-[50vh] lg:max-h-none object-contain"
-  />
-
-  {/* Controls */}
-  <div
-    className="absolute bottom-4 left-4 flex gap-2 bg-black bg-opacity-50 p-2 rounded"
-    onClick={(e) => e.stopPropagation()}
-  >
-    <button
-      onClick={(e) => {
-        e.stopPropagation();
-        togglePlayPause();
-      }}
-      className="text-white p-1"
-      aria-label="Play/Pause"
-    >
-      {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-    </button>
-
-    <button
-      onClick={(e) => {
-        e.stopPropagation();
-        toggleMute();
-      }}
-      className="text-white p-1"
-      aria-label="Mute/Unmute"
-    >
-      {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-    </button>
-  </div>
-</motion.div>
-</div>
-
-        );
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleMute();
+              }}
+              className="text-white p-1"
+              aria-label="Mute/Unmute"
+            >
+              {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+            </button>
+          </div>
+        </motion.div>
+        </div>
+      );
 
       case 3:
         return (

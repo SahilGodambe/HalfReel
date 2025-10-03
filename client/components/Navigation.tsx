@@ -54,7 +54,7 @@ export default function Navigation() {
     >
       {/* Logo */}
       <img
-        src="src/halfreel.png"
+        src="/halfreel.png"
         alt="HalfreelFilmsLogo"
         className="h-auto w-16 object-contain cursor-pointer z-50"
         onClick={() => navigate("/")}
