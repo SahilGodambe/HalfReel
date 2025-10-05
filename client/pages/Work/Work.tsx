@@ -26,7 +26,7 @@ export default function Work() {
 </div>
 
 
-      <section id="about" className="w-full pt-24 md:pt-28 work-section">
+      <section id="about" className="w-full pt-0 sm:pt-24 md:pt-28 work-section">
         <div className="w-full max-w-full flex flex-col items-center justify-start pt-8 px-4 h-full">
           <div className="w-full max-w-8xl text-center">
             {/* Title */}
