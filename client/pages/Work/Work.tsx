@@ -30,7 +30,7 @@ export default function Work() {
         <div className="w-full max-w-full flex flex-col items-center justify-start pt-8 px-4 h-full">
           <div className="w-full max-w-8xl text-center">
             {/* Title */}
-            <h1 className="text-about-heading font-extrabold text-neon-yellow mb-6 ">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold text-[#ff6600] mb-4 text-center leading-[0.8] ">
               OUR WORK
             </h1>
 
