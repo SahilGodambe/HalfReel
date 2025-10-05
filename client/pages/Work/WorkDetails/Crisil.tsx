@@ -1,5 +1,5 @@
 // WorkDetails/Crisil.tsx
-import React, { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -11,19 +11,27 @@ export default function CRISIL() {
     "/CRISIL WORK STATIC/02.png",
     "/CRISIL WORK STATIC/03.png",
   ];
+  const topRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "auto" });
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-6 md:p-10 lg:p-16 overflow-x-hidden">
+    <div ref={topRef} className="min-h-screen bg-background text-foreground p-6 md:p-10 lg:p-16 overflow-x-hidden">
       {/* Title */}
       <motion.div
         ref={(el) => (sectionRefs.current[0] = el)}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, amount: 0.2 }} 
         transition={{ duration: 0.6 }}
-        className="text-center mb-10"
+        className="text-center mb-4"
       >
-        <h1 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold text-neon-yellow mb-4">
+        
+        <h1 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold text-[#F66A13] ">
           CRISIL
         </h1>
       </motion.div>
@@ -33,9 +41,9 @@ export default function CRISIL() {
         ref={(el) => (sectionRefs.current[1] = el)}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6 }}
-        className="max-w-5xl lg:max-w-6xl mx-auto text-center mb-12"
+        className="max-w-5xl lg:max-w-6xl mx-auto text-center mb-8"
       >
         <p className="text-sm md:text-lg lg:text-xl 2xl:text-2xl leading-relaxed text-muted-foreground">
           We partnered with CRISIL to produce and post-produce 22 films for their prestigious CEO Awards Ceremony.
@@ -55,7 +63,7 @@ export default function CRISIL() {
             ref={(el) => (sectionRefs.current[index + 2] = el)}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
             className={`rounded-xl overflow-hidden shadow-lg ${
               index === 1 ? "h-[calc(100%+10px)]" : "aspect-[16/9]"
@@ -75,7 +83,7 @@ export default function CRISIL() {
         to="/work"
         className="fixed bottom-8 left-8 flex items-center group z-50"
       >
-        <div className="p-3 rounded-full bg-neon-yellow text-black transition hover:bg-black hover:text-neon-yellow flex items-center justify-center cursor-pointer">
+        <div className="p-3 rounded-full bg-[#F66A13] text-black transition hover:bg-black hover:text-[#F66A13] flex items-center justify-center cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -85,7 +93,7 @@ export default function CRISIL() {
             <path d="M15 19l-7-7 7-7" />
           </svg>
         </div>
-        <span className="ml-2 text-sm md:text-base font-semibold text-neon-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <span className="ml-2 text-sm md:text-base font-semibold text-[#F66A13] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Back to Work
         </span>
       </Link>

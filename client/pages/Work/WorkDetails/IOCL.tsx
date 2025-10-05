@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function IOCL() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoId = "0egGhE2_3OM"; // <-- new video ID
+  const topRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "auto" });
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 md:px-8">
+    <div ref={topRef} className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 md:px-8">
       {/* Layout */}
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-7xl items-center h-screen">
         {/* Left: YouTube Video */}

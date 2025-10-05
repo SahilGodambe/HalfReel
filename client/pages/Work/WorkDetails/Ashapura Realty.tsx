@@ -1,14 +1,21 @@
 // WorkDetails/Ashapura.tsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function AshapuraRealty() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoId = "aUjZ-NFYSOg";
+  const topRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "auto" });
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 md:px-8 py-8">
+    <div ref={topRef} className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 md:px-8 py-8">
       {/* Layout */}
       <div className="flex flex-col md:flex-row w-full max-w-7xl items-center gap-8">
         {/* Left: YouTube Video */}

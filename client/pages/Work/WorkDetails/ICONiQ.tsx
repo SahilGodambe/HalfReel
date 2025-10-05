@@ -1,5 +1,5 @@
 // WorkDetails/ICONiQ.tsx
-import React, { useRef, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -17,8 +17,16 @@ export default function ICONiQ() {
     "nn0D4iD2lqQ?si=qcFwVetefvENSzmE",
   ];
   const videoId = "ULQa-DTqJ1A";
+  const topRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "auto" });
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background text-foreground p-8 overflow-x-hidden">
+    <div ref={topRef} className="min-h-screen bg-background text-foreground p-8 overflow-x-hidden">
 
       {/* Navigation at the top */}
       {/* <Navigation /> */}

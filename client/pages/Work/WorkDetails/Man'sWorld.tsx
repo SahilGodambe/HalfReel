@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,9 +16,16 @@ export default function MansWorld() {
     "M6lu8iDzpq8?si=ZF5fV7Pb0kXP8kcE",
     "Fxd0neBQ5ww?si=yTo-ontEZ415BwBF",
   ];
+  const topRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "auto" });
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center px-4 md:px-8">
+    <div ref={topRef} className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center px-4 md:px-8">
 
       {/* Main Video & Details */}
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl items-center">

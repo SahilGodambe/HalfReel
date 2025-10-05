@@ -1,14 +1,21 @@
 // WorkDetails/MgHector.tsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function MgHector() {
   const navigate = useNavigate();
   const [isPlaying, setIsPlaying] = useState(false);
+  const topRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "auto" });
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 md:px-8">
+    <div ref={topRef} className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 md:px-8">
       {/* Layout */}
       <div className="flex flex-col md:flex-row gap-6 w-full max-w-6xl items-center h-auto md:h-screen">
         {/* Left: YouTube Video */}

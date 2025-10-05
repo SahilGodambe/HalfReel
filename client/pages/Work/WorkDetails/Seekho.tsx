@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,9 +16,16 @@ export default function Seekho() {
 
   // Main video ID
   const mainVideoId = "3Ru0xtwtqCg";
+  const topRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "auto" });
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center px-4 md:px-8">
+    <div ref={topRef} className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center px-4 md:px-8">
 
       {/* Main Video & Details */}
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl items-center">

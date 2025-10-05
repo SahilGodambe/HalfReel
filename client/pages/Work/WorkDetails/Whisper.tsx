@@ -1,5 +1,5 @@
 // WorkDetails/Whisper.tsx
-import React, { useRef, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -11,9 +11,16 @@ export default function Whisper() {
     "eNqkrE6jjB8", // first vertical video
     "cmcY8kZ9T8g", // second vertical video
   ];
+  const topRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "auto" });
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-8 overflow-x-hidden">
+    <div ref={topRef} className="min-h-screen bg-background text-foreground p-8 overflow-x-hidden">
 
       {/* Title & Small Description */}
       <motion.div
